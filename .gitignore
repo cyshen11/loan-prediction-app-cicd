@@ -190,3 +190,12 @@ myenv/share/jupyter/kernels/python3/logo-32x32.png
 myenv/share/jupyter/kernels/python3/logo-64x64.png
 myenv/share/jupyter/kernels/python3/logo-svg.svg
 myenv/share/man/man1/ipython.1
+myenv/bin/jsonschema
+myenv/bin/markdown-it
+myenv/bin/normalizer
+myenv/bin/streamlit
+myenv/bin/streamlit.cmd
+myenv/etc/jupyter/nbconfig/notebook.d/pydeck.json
+myenv/share/jupyter/nbextensions/pydeck/extensionRequires.js
+myenv/share/jupyter/nbextensions/pydeck/index.js
+myenv/share/jupyter/nbextensions/pydeck/index.js.map
