@@ -7,8 +7,9 @@ def main():
     st.sidebar.selectbox("Select a model", ["Logistic Regression"])
 
     st.text_input("Enter the loan amount")
+    st.text_input("Enter the loan interest rate", placeholder="0.05")
     st.text_input("Enter the annual income")
-    st.selectbox("Previous loan defaults", ["Yes", "No"])
+    st.selectbox("Previous loan defaults", ["No", "Yes"])
     # Load the model
     
 if __name__ == "__main__":
