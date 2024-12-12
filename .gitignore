@@ -199,3 +199,5 @@ myenv/etc/jupyter/nbconfig/notebook.d/pydeck.json
 myenv/share/jupyter/nbextensions/pydeck/extensionRequires.js
 myenv/share/jupyter/nbextensions/pydeck/index.js
 myenv/share/jupyter/nbextensions/pydeck/index.js.map
+myenv/bin/py.test
+myenv/bin/pytest
