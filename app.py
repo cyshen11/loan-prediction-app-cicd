@@ -1,16 +1,21 @@
 import streamlit as st
-from components.logistic_regression import LogisticRegressionModel
+from components.predictor import Predictor
 
 def main():
     st.title("Loan Prediction App")
 
-    st.sidebar.selectbox("Select a model", ["Logistic Regression"])
+    model_name = st.sidebar.selectbox("Select a model", ["Logistic Regression"])
 
-    st.text_input("Enter the loan amount")
-    st.text_input("Enter the loan interest rate", placeholder="0.05")
-    st.text_input("Enter the annual income")
-    st.selectbox("Previous loan defaults", ["No", "Yes"])
-    # Load the model
+    loan_amount = st.text_input("Enter the loan amount")
+    loan_int_rate = st.text_input("Enter the loan interest rate", placeholder="0.05")
+    annual_income = st.text_input("Enter the annual income")
+    previous_loan_defaults = st.selectbox("Previous loan defaults", ["No", "Yes"])
+    
+    if st.button("Predict"):
+        predictor = Predictor(model_name)
+        data = predictor.prepare_data(loan_amount, loan_int_rate, annual_income, previous_loan_defaults)
+        prediction = predictor.predict(data)
+        st.write(prediction)
     
 if __name__ == "__main__":
     main()
