@@ -29,3 +29,11 @@ def test_predict_loan_not_approved():
     prediction = predictor.predict(data)
     assert prediction == 'Loan will not be approved'
 
+def test_predict_loan_approved():
+    predictor = Predictor("Logistic Regression")
+    data = predictor.prepare_data(13, 14.88, 100, "No")
+    prediction = predictor.predict(data)
+    assert prediction == 'Loan will be approved'
+
+
+
