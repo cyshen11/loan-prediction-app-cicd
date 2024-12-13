@@ -29,13 +29,21 @@ def test_prepare_data():
     assert data.values.tolist() == [[0.1, 0.05, True, False, 100000]]
 
 def test_predict_loan_not_approved():
-    predictor = Predictor("Logistic Regression")
     X_test = predictor.prepare_data(8, 6.04, 100, "No")
+    
+    predictor = Predictor("Logistic Regression")
+    assert predictor.predict(X_test) == "Loan will not be approved"
+
+    predictor = Predictor("Random Forest")
     assert predictor.predict(X_test) == "Loan will not be approved"
 
 def test_predict_loan_approved():
-    predictor = Predictor("Logistic Regression")
     X_test = predictor.prepare_data(13, 14.88, 100, "No")
+    
+    predictor = Predictor("Logistic Regression")
+    assert predictor.predict(X_test) == "Loan will be approved"
+
+    predictor = Predictor("Random Forest")
     assert predictor.predict(X_test) == "Loan will be approved"
 
 
