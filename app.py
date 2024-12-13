@@ -6,7 +6,7 @@ def main():
 
     model_name = st.sidebar.selectbox(
         label="Select a model", 
-        options=["Logistic Regression"],
+        options=["Logistic Regression", "Random Forest"],
         key="model_name",
     )
 

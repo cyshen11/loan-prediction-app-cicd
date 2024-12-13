@@ -1,10 +1,12 @@
-from components.logistic_regression import LogisticRegressionModel
 import pandas as pd
+from joblib import load
 
 class Predictor():
     def __init__(self, model_name):
         if model_name == "Logistic Regression":
-            self.model = LogisticRegressionModel()
+            self.model = load('models/lr_model.joblib')
+        elif model_name == "Random Forest":
+            self.model = load('models/rf_model.joblib')
         else:
             raise ValueError(f"Model {model_name} not found")
 

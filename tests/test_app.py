@@ -15,6 +15,7 @@ def test_main_load():
     assert at.sidebar.selectbox("model_name").value == "Logistic Regression"
     assert at.sidebar.selectbox("model_name").index == 0
     at.sidebar.selectbox("model_name").set_value("Logistic Regression").run()
+    at.sidebar.selectbox("model_name").set_value("Random Forest").run()
 
     assert at.text_input("loan_amount").value == ""
     at.text_input("loan_amount").set_value("10000").run()
