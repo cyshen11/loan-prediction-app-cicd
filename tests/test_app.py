@@ -29,3 +29,5 @@ def test_main_load():
     at.selectbox("previous_loan_defaults").set_value("Yes").run()
 
     assert at.button("predict_button").value == False
+    at.button("predict_button").click()
+    assert at.button("predict_button").value == True
