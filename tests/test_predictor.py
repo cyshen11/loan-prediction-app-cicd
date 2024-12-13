@@ -28,23 +28,24 @@ def test_prepare_data():
     assert data.columns.tolist() == ['loan_percent_income', 'loan_int_rate', 'previous_loan_defaults_on_file_Yes', 'previous_loan_defaults_on_file_No', 'person_income']
     assert data.values.tolist() == [[0.1, 0.05, True, False, 100000]]
 
-def test_predict_loan_not_approved():
+def test_predict_loan_not_approved_lr():
+    predictor = Predictor("Logistic Regression")
     X_test = predictor.prepare_data(8, 6.04, 100, "No")
-    
+    assert predictor.predict(X_test) == "Loan will not be approved"
+
+def test_predict_loan_approved():    
     predictor = Predictor("Logistic Regression")
-    assert predictor.predict(X_test) == "Loan will not be approved"
-
-    predictor = Predictor("Random Forest")
-    assert predictor.predict(X_test) == "Loan will not be approved"
-
-def test_predict_loan_approved():
     X_test = predictor.prepare_data(13, 14.88, 100, "No")
-    
-    predictor = Predictor("Logistic Regression")
     assert predictor.predict(X_test) == "Loan will be approved"
 
+def test_predict_loan_not_approved_rf():
     predictor = Predictor("Random Forest")
-    assert predictor.predict(X_test) == "Loan will be approved"
+    X_test = predictor.prepare_data(16, 11.49, 100, "Yes")
+    assert predictor.predict(X_test) == "Loan will not be approved"
 
+def test_predict_loan_approved_rf():
+    predictor = Predictor("Random Forest")
+    X_test = predictor.prepare_data(13, 14.88, 100, "No")
+    assert predictor.predict(X_test) == "Loan will be approved"
 
 
