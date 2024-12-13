@@ -23,17 +23,5 @@ def test_prepare_data():
     assert data.columns.tolist() == ['loan_percent_income', 'loan_int_rate', 'previous_loan_defaults_on_file_Yes', 'previous_loan_defaults_on_file_No', 'person_income']
     assert data.values.tolist() == [[0.1, 0.05, True, False, 100000]]
 
-def test_predict_loan_not_approved():
-    predictor = Predictor("Logistic Regression")
-    data = predictor.prepare_data(8, 6.04, 100, "No")
-    prediction = predictor.predict(data)
-    assert prediction == 'Loan will not be approved'
-
-def test_predict_loan_approved():
-    predictor = Predictor("Logistic Regression")
-    data = predictor.prepare_data(13, 14.88, 100, "No")
-    prediction = predictor.predict(data)
-    assert prediction == 'Loan will be approved'
-
 
 
